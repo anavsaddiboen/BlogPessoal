@@ -2,10 +2,14 @@ package com.blogPessoal.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +25,11 @@ public class Postagem {
 	private String autor;
 	private int curtidas;
 	private int compartilhamentos;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_tema_id")
+	@JsonIgnoreProperties("postagens")
+	private Tema tema;
 
 	public long getId() {
 		return id;
@@ -77,4 +86,13 @@ public class Postagem {
 	public void setCompartilhamentos(int compartilhamentos) {
 		this.compartilhamentos = compartilhamentos;
 	}
+
+	public Tema getTema() {
+		return tema;
+	}
+
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
+
 }

@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.blogPessoal.repository.IPostagemRepository;
+import com.blogPessoal.repository.PostagemRepository;
 
 @RestController
 public class PostagemController {
 
 	@Autowired
-	private IPostagemRepository repository;
+	private PostagemRepository repository;
 
 	@GetMapping("/postagens")
 	public List<Postagem> getAll() {
@@ -62,5 +62,4 @@ public class PostagemController {
 		postagemExistente.setTitulo(postagem.getTitulo());
 		return repository.save(postagemExistente);
 	}
-
 }
