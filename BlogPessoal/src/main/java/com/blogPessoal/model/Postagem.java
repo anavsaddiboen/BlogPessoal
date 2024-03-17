@@ -22,6 +22,14 @@ public class Postagem {
 	private int curtidas;
 	private int compartilhamentos;
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
